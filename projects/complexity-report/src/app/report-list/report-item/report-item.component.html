@@ -1,0 +1,17 @@
+@if (report.complexity) {
+
+    <details>
+        <summary>
+            <b>{{ report.complexity }}</b>
+            {{ report.filePath | relativePath: "D:\\git\\web-reports\\apps\\cat-porter\\src\\" }}
+        </summary>
+        <code>
+        <pre>
+        {{ report.source }}
+        </pre>
+        </code>
+    </details>
+
+} @else {
+    {{ report.filePath | relativePath: "D:\\git\\web-reports\\apps\\cat-porter\\src\\" }}
+}

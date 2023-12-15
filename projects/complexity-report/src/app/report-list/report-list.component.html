@@ -1,0 +1,9 @@
+<ul>
+
+    @for (report of reports | sortByComplexity; track report) {
+        <li>
+            <app-report-item [report]="report"/>
+        </li>
+    }
+
+</ul>

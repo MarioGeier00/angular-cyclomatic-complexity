@@ -1,3 +1,32 @@
-<h1>Welcome to {{title}}!</h1>
+<h1>Welcome to {{ title }}!</h1>
+
+@if (1 == value) {
+    @if (2 == value) {
+        @if (3 == value) {
+
+        }
+    }
+}
+
+<ng-container *ngIf="1 === value">
+    <ng-container *ngIf="2 === value">
+        <ng-container *ngIf="3 === value">
+            <ng-container *ngIf="3 === value">
+                <ng-container *ngIf="3 === value">
+                    <ng-container *ngIf="3 === value">
+                        <ng-container *ngIf="3 === value">
+                            <ng-container *ngIf="3 === value">
+                                <ng-container *ngIf="3 === value">
+
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
 
 <router-outlet></router-outlet>

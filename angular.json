@@ -108,6 +108,88 @@
           }
         }
       }
+    },
+    "complexity-report": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/complexity-report",
+      "sourceRoot": "projects/complexity-report/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/complexity-report",
+            "index": "projects/complexity-report/src/index.html",
+            "browser": "projects/complexity-report/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/complexity-report/tsconfig.app.json",
+            "assets": [
+              "projects/complexity-report/src/favicon.ico",
+              "projects/complexity-report/src/assets"
+            ],
+            "styles": [
+              "projects/complexity-report/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "complexity-report:build:production"
+            },
+            "development": {
+              "buildTarget": "complexity-report:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "complexity-report:build"
+          }
+        },
+        "test": {
+          "builder": "@analogjs/platform:vitest"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/complexity-report/**/*.ts",
+              "projects/complexity-report/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
